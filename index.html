@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capacitación para el Relevamiento Nacional de Personas en Situación de Calle</title>
+<meta name="description" content="Reservá el lugar de tu provincia en la capacitación para el Relevamiento Nacional de Personas en Situación de Calle.">
+<style>
+@font-face{font-family:"Montserrat";src:url("fonts/Montserrat-VariableFont_wght.ttf") format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Lora";src:url("fonts/Lora-VariableFont_wght.ttf") format("truetype");font-weight:400 700;font-display:swap}
+
+:root{
+  /* Paleta Poncho (Identidad de Presidencia de la Nación) */
+  --azul:#232D4F; --cobalto:#3E5A7E; --acero:#5A7290; --arena:#EAE1B7; --amarillo:#E7BA61;
+  --verde:#2E7D33; --rojo:#C62828; --negro:#141414; --gris:#555555; --niebla:#F2F2F2; --blanco:#fff;
+  --borde:#d9dde5;
+  --sans:"Montserrat",system-ui,sans-serif; --serif:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--serif);font-size:1.0625rem;line-height:1.65;color:var(--negro);background:var(--blanco)}
+h1,h2,h3,.sans{font-family:var(--sans)}
+a{color:var(--cobalto)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Cabecera institucional */
+.topbar{background:var(--blanco);border-bottom:1px solid var(--borde)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;min-height:64px;flex-wrap:wrap}
+/* TODO: reemplazar este bloque por el logo oficial del Ministerio (SVG) */
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--sans);color:var(--azul);text-decoration:none}
+.brand .flag{width:34px;height:24px;border-radius:2px;background:linear-gradient(#75AADB 0 33%,#fff 33% 66%,#75AADB 66%);border:1px solid #bcd0e6}
+.brand b{display:block;font-size:.95rem;line-height:1.1;font-weight:800;letter-spacing:.01em}
+.brand span{display:block;font-size:.72rem;font-weight:500;color:var(--gris);letter-spacing:.04em;text-transform:uppercase}
+.topbar .logo{margin-left:auto;height:46px;width:auto;display:block}
+
+/* Hero */
+.hero{background:var(--azul);color:var(--blanco);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--cobalto);opacity:.35}
+.hero::before{content:"";position:absolute;right:120px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:var(--amarillo);opacity:.9}
+.hero .wrap{position:relative;z-index:1;padding-top:64px;padding-bottom:72px}
+.eyebrow{font:700 .8rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--amarillo);margin:0 0 14px}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.12;font-weight:800;margin:0 0 18px;max-width:20ch}
+.hero p.lead{font-size:1.15rem;max-width:56ch;margin:0 0 28px;color:#e6eaf3}
+.btn{display:inline-block;font:700 1rem var(--sans);padding:14px 26px;border-radius:6px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:transform .12s, background .12s}
+.btn-primary{background:var(--amarillo);color:var(--azul)}
+.btn-primary:hover{background:#f1c96f;transform:translateY(-1px)}
+.btn-dark{background:var(--azul);color:#fff}
+.btn-dark:hover{background:var(--cobalto)}
+.btn-ghost{background:transparent;color:var(--azul);border-color:var(--azul)}
+.btn[disabled]{background:#e4e6ea;color:#6b7280;cursor:not-allowed;transform:none;border-color:transparent}
+
+.section{padding:64px 0}
+.section.alt{background:var(--niebla)}
+.section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:var(--azul);margin:0 0 8px}
+.section .kicker{font-family:var(--sans);color:var(--gris);margin:0 0 36px;max-width:62ch}
+.bar{width:56px;height:5px;background:var(--amarillo);border-radius:3px;margin:0 0 18px}
+
+/* Por qué y para qué */
+.why{display:grid;gap:22px;grid-template-columns:repeat(2,1fr)}
+.why article{background:var(--blanco);border:1px solid var(--borde);border-top:5px solid var(--cobalto);border-radius:8px;padding:26px}
+.why article:nth-child(2){border-top-color:var(--amarillo)}
+.why h3{margin:0 0 10px;font-size:1.1rem;color:var(--azul)}
+.why p{margin:0;font-size:1rem}
+.note{margin-top:28px;background:var(--arena);border-radius:8px;padding:18px 22px;font-size:1rem}
+.note b{font-family:var(--sans)}
+
+/* Temario */
+.agenda{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);counter-reset:t}
+.agenda li{list-style:none;counter-increment:t;display:flex;gap:16px;background:var(--blanco);border:1px solid var(--borde);border-radius:8px;padding:18px 20px}
+.agenda li::before{content:counter(t);flex:0 0 36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;font:800 .95rem var(--sans);display:grid;place-items:center}
+.agenda strong{display:block;font-family:var(--sans);color:var(--azul);margin-bottom:2px}
+.agenda span{font-size:.95rem;color:var(--gris)}
+ul.agenda{padding:0;margin:0}
+
+/* Jornadas */
+.demo{background:#fff7e0;border:1px dashed var(--amarillo);border-radius:8px;padding:12px 16px;margin-bottom:28px;font:500 .9rem var(--sans);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.demo button{font:600 .85rem var(--sans);background:none;border:1px solid var(--azul);color:var(--azul);border-radius:4px;padding:5px 10px;cursor:pointer}
+.rules{display:flex;gap:18px;flex-wrap:wrap;font:500 .92rem var(--sans);color:var(--gris);margin:-14px 0 30px;padding:0;list-style:none}
+.rules li::before{content:"✓ ";color:var(--verde);font-weight:800}
+.dates{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.date{background:var(--blanco);border:1px solid var(--borde);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(35,45,79,.06)}
+.date.agotada{opacity:.97}
+.date .head{display:flex;gap:16px;align-items:center;padding:22px 22px 14px}
+.cal{flex:0 0 78px;text-align:center;border-radius:8px;overflow:hidden;border:2px solid var(--azul);font-family:var(--sans)}
+.cal .m{background:var(--azul);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 0}
+.cal .d{font-size:2.1rem;font-weight:800;line-height:1.1;color:var(--azul);padding:4px 0 0}
+.cal .w{font-size:.7rem;font-weight:600;color:var(--gris);text-transform:uppercase;padding-bottom:5px}
+.date h3{margin:0;font-size:1.1rem;color:var(--azul);line-height:1.25}
+.meta{font:500 .9rem var(--sans);color:var(--gris);margin-top:4px;display:flex;flex-direction:column;gap:2px}
+.status{padding:0 22px}
+.badge{display:inline-block;font:700 .72rem var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+.b-ok{background:#e3f2e4;color:#1f5a23}
+.b-last{background:#fdeccb;color:#7a4b00}
+.b-full{background:#fbe0e0;color:#8c1a1a}
+.pips{display:flex;gap:6px;margin:12px 0 6px}
+.pip{flex:1;height:10px;border-radius:5px;background:#e4e7ee}
+.pip.on{background:var(--cobalto)}
+.date.agotada .pip.on{background:var(--rojo)}
+.count{font:600 .9rem var(--sans);color:var(--azul)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:12px 22px 0;min-height:44px}
+.chip{font:500 .74rem var(--sans);background:var(--niebla);border-radius:99px;padding:3px 10px;color:var(--gris)}
+.date .foot{padding:18px 22px 22px;margin-top:auto}
+.date .foot .btn{width:100%;text-align:center}
+.small{font:500 .8rem var(--sans);color:var(--gris);margin:8px 0 0}
+.loading,.error{font:500 1rem var(--sans);padding:28px;background:var(--niebla);border-radius:8px;grid-column:1/-1}
+
+/* Modal */
+dialog{border:0;border-radius:12px;padding:0;width:min(640px,calc(100% - 24px));max-height:calc(100dvh - 24px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(20,26,48,.65)}
+.m-head{background:var(--azul);color:#fff;padding:22px 26px;position:relative}
+.m-head h2{margin:0;font-size:1.3rem;color:#fff}
+.m-head p{margin:4px 0 0;font:500 .9rem var(--sans);color:#cdd5e6}
+.m-close{position:absolute;right:14px;top:14px;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1;padding:6px 10px}
+.m-body{padding:24px 26px 28px;font-family:var(--sans)}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:600;font-size:.88rem;margin-bottom:5px;color:var(--azul)}
+.field input,.field select{width:100%;font:500 1rem var(--sans);padding:11px 12px;border:1.5px solid #aab3c5;border-radius:6px;background:#fff;color:var(--negro)}
+.field input:focus,.field select:focus{border-color:var(--cobalto)}
+.field .help{font-size:.8rem;color:var(--gris);margin-top:4px}
+.row{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--gris);margin:6px 0 18px}
+.check input{margin-top:3px;width:18px;height:18px;flex:0 0 18px}
+.alert{border-radius:8px;padding:12px 14px;font-size:.92rem;margin-bottom:16px;font-weight:500}
+.alert.err{background:#fbe0e0;color:#7a1414;border:1px solid #f0b4b4}
+.actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.ok-box{text-align:center;padding:10px 0 4px}
+.ok-box .tick{width:64px;height:64px;border-radius:50%;background:var(--verde);color:#fff;font-size:2rem;display:grid;place-items:center;margin:0 auto 14px}
+.ok-box h3{margin:0 0 6px;color:var(--azul);font-size:1.3rem}
+.sum{background:var(--niebla);border-radius:8px;padding:14px 18px;text-align:left;margin:18px 0;font-size:.95rem}
+.sum div{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.sum dt{color:var(--gris)} .sum dd{margin:0;font-weight:700;color:var(--azul);text-align:right}
+
+footer{background:var(--azul);color:#cdd5e6;padding:36px 0;font:400 .9rem var(--sans)}
+footer b{color:#fff}
+footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}
+
+@media(max-width:900px){.why{grid-template-columns:1fr}.agenda{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero::before{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <span class="flag" aria-hidden="true"></span>
+      <span><b>Argentina</b><span>Ministerio de Capital Humano</span></span>
+    </a>
+    <img class="logo" src="img/datacalle.jpg" alt="DataCalle">
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Capacitación para el relevamiento</p>
+    <h1>Relevamiento Nacional de Personas en Situación de Calle</h1>
+    <p class="lead">Una capacitación conjunta para coordinadores y relevadores, con tres fechas a elegir. Reservá el lugar de tu provincia: una sola inscripción por provincia, para todo tu equipo.</p>
+    <a class="btn btn-primary" href="#jornadas">Elegir una fecha</a>
+  </div>
+</section>
+
+<section class="section" id="sentido">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>¿Por qué y para qué esta capacitación?</h2>
+    <p class="kicker">Un relevamiento es tan confiable como las personas que lo llevan adelante. Esta capacitación es para que todos los equipos trabajen con los mismos criterios técnicos y metodológicos.</p>
+    <div class="why">
+      <article>
+        <h3>El sentido del relevamiento</h3>
+        <p>Conocer las principales características socio-demográficas, las condiciones de sustento y el tiempo en situación de calle en cada jurisdicción del país, para generar información estadística confiable que permita dimensionar la problemática y identificar las necesidades de esta población.</p>
+      </article>
+      <article>
+        <h3>Por qué participar en conjunto</h3>
+        <p>Coordinadores y relevadores se capacitan juntos para compartir una misma metodología y coordinar los operativos de cada jurisdicción con criterios comunes en todo el territorio.</p>
+      </article>
+    </div>
+    <div class="note">
+      <b>Principios del relevamiento.</b> El relevamiento alcanza a todas las personas que habitan en la calle o en espacios públicos, de forma transitoria o permanente, usen o no servicios de alojamiento nocturno. La participación de quienes responden es voluntaria y confidencial, y requiere un trato digno en cada contacto.
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="temario">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Qué vamos a ver</h2>
+    <div style="height:22px"></div>
+    <ul class="agenda">
+      <li><div><strong>Criterios generales del relevamiento</strong><span>Objetivo, población objetivo y metodología.</span></div></li>
+      <li><div><strong>Uso de la plataforma DataCalle</strong><span>El relevamiento paso a paso.</span></div></li>
+      <li><div><strong>Experiencias del año pasado</strong><span>Retomarlas para construir juntos una dinámica y operativos coordinados.</span></div></li>
+      <li><div><strong>Espacio de intercambio entre jurisdicciones</strong><span>Consultas, dudas y aprendizajes compartidos.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="jornadas">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Elegí tu fecha</h2>
+    <p class="kicker">Cada fecha tiene lugar para 6 provincias. Una vez completado el cupo, la fecha se cierra.</p>
+    <ul class="rules">
+      <li>Una inscripción por provincia</li>
+      <li>La realiza una sola persona, en nombre de todo su equipo</li>
+      <li>Indicás cuántas personas participan</li>
+    </ul>
+    <div id="demo"></div>
+    <div class="dates" id="dates" aria-live="polite"><div class="loading">Cargando jornadas…</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Ministerio de Capital Humano</b><br>Subsecretaría de Promoción Humana<br>Dirección Nacional de Políticas de Integración y Protección Social</div>
+    <div>¿Dudas sobre la inscripción?<br><a style="color:#fff" href="mailto:situaciondecalle@secretarianaf.gob.ar">situaciondecalle@secretarianaf.gob.ar</a></div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="m-head">
+    <button class="m-close" id="dlgClose" aria-label="Cerrar">×</button>
+    <h2 id="dlgTitle">Reservar lugar</h2>
+    <p id="dlgSub"></p>
+  </div>
+  <div class="m-body" id="dlgBody"></div>
+</dialog>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN
+   Dejar API_URL vacío = modo DEMOSTRACIÓN (datos de ejemplo en el navegador).
+   Para producción, pegar acá la URL de la implementación de Apps Script
+   (termina en /exec).
+   ============================================================ */
+const CONFIG = { API_URL: "https://script.google.com/macros/s/AKfycbxpDY2TDBExeZDV0RSfQgejW43B1cRsu7QF9fAnOcQc-IpIpSIkcnXewSQG73SfrTOJ/exec" };
+
+const PROVINCIAS = ["Buenos Aires","Catamarca","Chaco","Chubut","Ciudad Autónoma de Buenos Aires","Córdoba","Corrientes","Entre Ríos","Formosa","Jujuy","La Pampa","La Rioja","Mendoza","Misiones","Neuquén","Río Negro","Salta","San Juan","San Luis","Santa Cruz","Santa Fe","Santiago del Estero","Tierra del Fuego","Tucumán"];
+const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const DIAS = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+
+/* ---------- Capa de datos: demo o Apps Script ---------- */
+const DEMO = !CONFIG.API_URL;
+const LS_KEY = "cap_demo_v1";
+
+function demoSeed(){
+  return {
+    jornadas:[
+      {id:"J1",fecha:"2026-10-12",hora:"10 a 12 hs",modalidad:"Modalidad a confirmar",cupo:6},
+      {id:"J2",fecha:"2026-10-14",hora:"10 a 12 hs",modalidad:"Modalidad a confirmar",cupo:6},
+      {id:"J3",fecha:"2026-10-16",hora:"10 a 12 hs",modalidad:"Modalidad a confirmar",cupo:6}
+    ],
+    inscripciones:[
+      ...["Salta","Jujuy","Tucumán","Mendoza"].map(p=>({jornadaId:"J1",provincia:p,personas:5})),
+      ...["Chubut","Neuquén"].map(p=>({jornadaId:"J2",provincia:p,personas:4})),
+      ...["Córdoba","Santa Fe","Entre Ríos","Misiones","Chaco","Corrientes"].map(p=>({jornadaId:"J3",provincia:p,personas:6}))
+    ]
+  };
+}
+function demoLoad(){
+  try{const s=localStorage.getItem(LS_KEY); if(s) return JSON.parse(s);}catch(e){}
+  return demoSeed();
+}
+function demoSave(d){ try{localStorage.setItem(LS_KEY,JSON.stringify(d));}catch(e){} }
+
+function buildEstado(d){
+  return {jornadas:d.jornadas.map(j=>({
+    ...j, provincias:[...new Set(d.inscripciones.filter(i=>i.jornadaId===j.id).map(i=>i.provincia))]
+  }))};
+}
+
+const api = {
+  async estado(){
+    if(DEMO){ await new Promise(r=>setTimeout(r,250)); return buildEstado(demoLoad()); }
+    const r = await fetch(CONFIG.API_URL+"?action=estado");
+    return r.json();
+  },
+  async inscribir(datos){
+    if(DEMO){
+      await new Promise(r=>setTimeout(r,500));
+      const d=demoLoad(), est=buildEstado(d), j=est.jornadas.find(x=>x.id===datos.jornadaId);
+      const previa=d.inscripciones.find(i=>i.provincia===datos.provincia);
+      if(previa) return {ok:false,code:"PROVINCIA_YA_INSCRIPTA",jornadaId:previa.jornadaId,message:"Tu provincia ya tiene una inscripción registrada."};
+      if(j.provincias.length>=j.cupo) return {ok:false,code:"LLENA",message:"Esta jornada completó sus cupos."};
+      d.inscripciones.push({jornadaId:datos.jornadaId,provincia:datos.provincia,personas:datos.personas});
+      demoSave(d);
+      return {ok:true};
+    }
+    const r = await fetch(CONFIG.API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"inscribir",...datos})});
+    return r.json();
+  }
+};
+
+/* ---------- Utilidades ---------- */
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function parseF(iso){const [y,m,d]=iso.split("-").map(Number);return new Date(y,m-1,d);}
+function fechaLarga(iso){const f=parseF(iso);return `${DIAS[f.getDay()]} ${f.getDate()} de ${MESES[f.getMonth()]}`;}
+
+let ESTADO=null;
+
+/* ---------- Render de jornadas ---------- */
+function render(){
+  const cont=$("#dates");
+  if(!ESTADO){return;}
+  cont.innerHTML=ESTADO.jornadas.map(j=>{
+    const n=j.provincias.length, llena=n>=j.cupo, ultimos=!llena && n>=j.cupo-1;
+    const f=parseF(j.fecha);
+    const badge = llena?`<span class="badge b-full">Cupos agotados</span>`
+                : ultimos?`<span class="badge b-last">Último cupo</span>`
+                : `<span class="badge b-ok">Disponible</span>`;
+    const pips=Array.from({length:j.cupo},(_,i)=>`<span class="pip ${i<n?"on":""}"></span>`).join("");
+    const chips=j.provincias.map(p=>`<span class="chip">${esc(p)}</span>`).join("");
+    return `<article class="date ${llena?"agotada":""}">
+      <div class="head">
+        <div class="cal" aria-hidden="true"><div class="m">${MESES[f.getMonth()].slice(0,3)}</div><div class="d">${f.getDate()}</div><div class="w">${DIAS[f.getDay()].slice(0,3)}</div></div>
+        <div><h3>Jornada ${esc(j.id.replace(/\D/g,""))}<br>${esc(fechaLarga(j.fecha))}</h3>
+        <div class="meta"><span>🕙 ${esc(j.hora)}</span><span>💻 ${esc(j.modalidad)}</span></div></div>
+      </div>
+      <div class="status">${badge}
+        <div class="pips" role="img" aria-label="${n} de ${j.cupo} provincias inscriptas">${pips}</div>
+        <div class="count">${n} de ${j.cupo} provincias</div>
+      </div>
+      <div class="chips" aria-label="Provincias inscriptas">${chips || '<span class="small" style="margin:0">Todavía no hay provincias inscriptas.</span>'}</div>
+      <div class="foot">
+        <button class="btn ${llena?"":"btn-dark"}" ${llena?"disabled":""} data-j="${esc(j.id)}">${llena?"Cupos agotados":"Reservar el lugar de mi provincia"}</button>
+        ${llena?`<p class="small">Probá con otra jornada con lugar disponible.</p>`:""}
+      </div>
+    </article>`;
+  }).join("");
+  cont.querySelectorAll("button[data-j]:not([disabled])").forEach(b=>b.onclick=()=>abrirForm(b.dataset.j));
+}
+
+async function cargar(){
+  try{
+    ESTADO=await api.estado();
+    render();
+  }catch(e){
+    $("#dates").innerHTML=`<div class="error">No pudimos cargar las jornadas. Revisá tu conexión e intentá de nuevo en unos minutos.</div>`;
+  }
+}
+
+/* ---------- Formulario ---------- */
+const dlg=$("#dlg");
+$("#dlgClose").onclick=()=>dlg.close();
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close();});
+
+function abrirForm(jid){
+  const j=ESTADO.jornadas.find(x=>x.id===jid);
+  const tomadas={};
+  ESTADO.jornadas.forEach(x=>x.provincias.forEach(p=>tomadas[p]=x));
+  $("#dlgTitle").textContent="Reservar lugar";
+  $("#dlgSub").textContent=`Jornada ${j.id.replace(/\D/g,"")} · ${fechaLarga(j.fecha)} · ${j.hora}`;
+  const opts=PROVINCIAS.map(p=>{
+    const t=tomadas[p];
+    return t?`<option value="${esc(p)}" disabled>${esc(p)} — ya inscripta (${esc(fechaLarga(t.fecha))})</option>`
+            :`<option value="${esc(p)}">${esc(p)}</option>`;
+  }).join("");
+  $("#dlgBody").innerHTML=`
+  <form id="frm" novalidate>
+    <div id="msg" role="alert"></div>
+    <div class="field"><label for="provincia">Provincia o jurisdicción *</label>
+      <select id="provincia" required><option value="">Seleccioná…</option>${opts}</select>
+      <div class="help">Se registra una sola inscripción por provincia.</div></div>
+    <div class="field"><label for="personas">Cantidad de personas de tu provincia que participarán *</label>
+      <input id="personas" type="number" min="1" max="60" inputmode="numeric" required>
+      <div class="help">Contate a vos y a todo tu equipo de relevadores y coordinadores.</div></div>
+    <div class="row">
+      <div class="field"><label for="nombre">Nombre y apellido *</label><input id="nombre" autocomplete="name" required></div>
+      <div class="field"><label for="cargo">Cargo o función *</label><input id="cargo" required></div>
+    </div>
+    <div class="field"><label for="organismo">Organismo provincial *</label><input id="organismo" required></div>
+    <div class="row">
+      <div class="field"><label for="email">Correo electrónico *</label><input id="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="tel">Teléfono de contacto *</label><input id="tel" type="tel" autocomplete="tel" required></div>
+    </div>
+    <label class="check"><input type="checkbox" id="ok" required>
+      <span>Confirmo que coordino la participación de mi provincia y que los datos son correctos. Los datos se usarán únicamente para organizar la capacitación.</span></label>
+    <div class="actions"><button type="button" class="btn btn-ghost" id="cancel">Cancelar</button>
+      <button class="btn btn-dark" id="send" type="submit">Confirmar inscripción</button></div>
+  </form>`;
+  $("#cancel").onclick=()=>dlg.close();
+  $("#frm").onsubmit=e=>{e.preventDefault();enviar(j);};
+  dlg.showModal();
+}
+
+function msg(t){ $("#msg").innerHTML=t?`<div class="alert err">${t}</div>`:""; }
+
+async function enviar(j){
+  const v=id=>$("#"+id).value.trim();
+  const datos={jornadaId:j.id,provincia:v("provincia"),personas:parseInt(v("personas"),10),nombre:v("nombre"),cargo:v("cargo"),organismo:v("organismo"),email:v("email"),telefono:v("tel")};
+  if(!datos.provincia||!datos.nombre||!datos.cargo||!datos.organismo||!datos.email||!datos.telefono||!(datos.personas>=1)) return msg("Completá todos los campos obligatorios.");
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(datos.email)) return msg("Revisá el correo electrónico: parece incompleto.");
+  if(!$("#ok").checked) return msg("Tenés que confirmar los datos para continuar.");
+  const btn=$("#send"); btn.disabled=true; btn.textContent="Reservando…"; msg("");
+  try{
+    const r=await api.inscribir(datos);
+    if(r.ok){ exito(j,datos); await cargar(); return; }
+    await cargar();
+    if(r.code==="LLENA") { $("#dlgBody").innerHTML=`<div class="alert err"><b>Se completó el cupo de esta jornada.</b> Otra provincia reservó el último lugar mientras completabas el formulario. Elegí otra jornada disponible.</div><div class="actions"><button class="btn btn-dark" onclick="dlg.close()">Volver a las jornadas</button></div>`; return; }
+    if(r.code==="PROVINCIA_YA_INSCRIPTA"){ const o=ESTADO.jornadas.find(x=>x.id===r.jornadaId); msg(`Tu provincia ya está inscripta${o?` en la jornada del ${esc(fechaLarga(o.fecha))}`:""}. Si necesitás cambiarla, escribinos.`); }
+    else msg(esc(r.message||"No pudimos completar la inscripción."));
+    btn.disabled=false; btn.textContent="Confirmar inscripción";
+  }catch(e){
+    msg("Hubo un problema de conexión. Tu inscripción no se registró: intentá de nuevo.");
+    btn.disabled=false; btn.textContent="Confirmar inscripción";
+  }
+}
+
+function exito(j,d){
+  $("#dlgTitle").textContent="¡Inscripción confirmada!";
+  $("#dlgBody").innerHTML=`<div class="ok-box"><div class="tick">✓</div>
+    <h3>El lugar de ${esc(d.provincia)} está reservado</h3>
+    <p>Te enviamos un correo de confirmación a <b>${esc(d.email)}</b>. Si no lo ves, revisá la carpeta de spam.</p></div>
+    <dl class="sum">
+      <div><dt>Jornada</dt><dd>${esc(fechaLarga(j.fecha))}</dd></div>
+      <div><dt>Horario</dt><dd>${esc(j.hora)}</dd></div>
+      <div><dt>Provincia</dt><dd>${esc(d.provincia)}</dd></div>
+      <div><dt>Personas que participan</dt><dd>${d.personas}</dd></div>
+      <div><dt>Coordinación</dt><dd>${esc(d.nombre)}</dd></div>
+    </dl>
+    <p class="small">Compartí el link de acceso con tu equipo cuando lo recibas. Recordá que la inscripción es única por provincia.</p>
+    <div class="actions"><button class="btn btn-dark" onclick="dlg.close()">Cerrar</button></div>`;
+}
+
+/* ---------- Banner demo ---------- */
+if(DEMO){
+  $("#demo").innerHTML=`<div class="demo"><span>⚙️ <b>Modo demostración:</b> fechas y provincias de ejemplo. Nada se envía ni se guarda en un servidor.</span><button id="reset">Reiniciar demo</button></div>`;
+  $("#reset").onclick=()=>{try{localStorage.removeItem(LS_KEY);}catch(e){} cargar();};
+}
+cargar();
+</script>
+</body>
+</html>
