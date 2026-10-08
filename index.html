@@ -67,13 +67,21 @@ a{color:var(--cobalto)}
 .note b{font-family:var(--sans)}
 
 /* Temario */
-.agenda{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);counter-reset:t}
-.agenda li{list-style:none;counter-increment:t;display:flex;gap:16px;background:var(--blanco);border:1px solid var(--borde);border-radius:8px;padding:18px 20px}
-.agenda li::before{content:counter(t);flex:0 0 36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;font:800 .95rem var(--sans);display:grid;place-items:center}
-.agenda strong{display:block;font-family:var(--sans);color:var(--azul);margin-bottom:2px}
+.agenda{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);counter-reset:t}
+.agenda li{list-style:none;counter-increment:t;display:flex;flex-direction:column;align-items:flex-start;gap:14px;background:var(--blanco);border:1px solid var(--borde);border-radius:8px;padding:24px 22px}
+.agenda li::before{content:counter(t);flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;font:800 .95rem var(--sans);display:grid;place-items:center}
+.agenda strong{display:block;font-family:var(--sans);color:var(--azul);font-size:1.1rem;margin-bottom:4px}
 .agenda span{font-size:.95rem;color:var(--gris)}
 ul.agenda{padding:0;margin:0}
 
+/* Material */
+.material{display:flex;gap:28px;align-items:center;background:var(--blanco);border:1px solid var(--borde);border-left:6px solid var(--amarillo);border-radius:10px;padding:28px 30px;box-shadow:0 2px 10px rgba(35,45,79,.06)}
+.material .doc{flex:0 0 64px;height:80px;border-radius:6px;background:var(--azul);color:#fff;font:800 .8rem var(--sans);letter-spacing:.06em;display:grid;place-items:end center;padding-bottom:10px;position:relative}
+.material .doc::before{content:"";position:absolute;top:0;right:0;width:20px;height:20px;background:var(--amarillo);border-bottom-left-radius:6px}
+.material h3{margin:0 0 4px;font-size:1.2rem;color:var(--azul)}
+.material p{margin:0;font-size:1rem}
+.material .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.material .btn{padding:11px 20px;font-size:.95rem}
 /* Jornadas */
 .demo{background:#fff7e0;border:1px dashed var(--amarillo);border-radius:8px;padding:12px 16px;margin-bottom:28px;font:500 .9rem var(--sans);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .demo button{font:600 .85rem var(--sans);background:none;border:1px solid var(--azul);color:var(--azul);border-radius:4px;padding:5px 10px;cursor:pointer}
@@ -136,7 +144,18 @@ footer{background:var(--azul);color:#cdd5e6;padding:36px 0;font:400 .9rem var(--
 footer b{color:#fff}
 footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}
 
-@media(max-width:900px){.why{grid-template-columns:1fr}.agenda{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero::before{display:none}}
+@media(max-width:900px){.why{grid-template-columns:1fr}.agenda{grid-template-columns:1fr}.material{flex-direction:column;align-items:flex-start}.row{grid-template-columns:1fr}.hero::before{display:none}}
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .topbar .wrap{flex-wrap:nowrap;gap:10px;min-height:56px}
+  .brand .flag{width:28px;height:20px}
+  .brand b{font-size:.82rem}.brand span span{font-size:.62rem}
+  .topbar .logo{height:34px}
+  .hero .wrap{padding-top:44px;padding-bottom:52px}
+  .section{padding:44px 0}
+  .m-body{padding:20px 18px 24px}.m-head{padding:18px 18px}
+  .actions .btn{flex:1 1 100%}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -172,8 +191,9 @@ footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}
         <p>Conocer las principales características socio-demográficas, las condiciones de sustento y el tiempo en situación de calle en cada jurisdicción del país, para generar información estadística confiable que permita dimensionar la problemática y identificar las necesidades de esta población.</p>
       </article>
       <article>
-        <h3>Por qué participar en conjunto</h3>
-        <p>Coordinadores y relevadores se capacitan juntos para compartir una misma metodología y coordinar los operativos de cada jurisdicción con criterios comunes en todo el territorio.</p>
+        <h3>¿A quiénes está dirigida?</h3>
+        <p>A los equipos de coordinación provincial y a los equipos de relevamiento (coordinadores/as y relevadores/as) de las jurisdicciones que participan del Relevamiento Nacional. Se capacitan juntos, en la misma jornada.</p>
+        <p style="margin-top:10px"><b class="sans" style="color:var(--azul)">Una inscripción por provincia:</b> la realiza una sola persona, en nombre de todo su equipo.</p>
       </article>
     </div>
     <div class="note">
@@ -188,11 +208,26 @@ footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}
     <h2>Qué vamos a ver</h2>
     <div style="height:22px"></div>
     <ul class="agenda">
-      <li><div><strong>Criterios generales del relevamiento</strong><span>Objetivo, población objetivo y metodología.</span></div></li>
-      <li><div><strong>Uso de la plataforma DataCalle</strong><span>El relevamiento paso a paso.</span></div></li>
-      <li><div><strong>Experiencias del año pasado</strong><span>Retomarlas para construir juntos una dinámica y operativos coordinados.</span></div></li>
-      <li><div><strong>Espacio de intercambio entre jurisdicciones</strong><span>Consultas, dudas y aprendizajes compartidos.</span></div></li>
+      <li><div><strong>La experiencia 2025</strong><span>La retomamos para construir juntos una dinámica y operativos coordinados.</span></div></li>
+      <li><div><strong>Criterios generales</strong><span>Objetivo, población objetivo y metodología del relevamiento.</span></div></li>
+      <li><div><strong>La plataforma DataCalle</strong><span>El relevamiento paso a paso, de la preparación al cierre.</span></div></li>
     </ul>
+  </div>
+</section>
+
+<section class="section" id="material" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="material">
+      <div class="doc" aria-hidden="true">PDF</div>
+      <div>
+        <h3>Manual del Relevamiento Nacional</h3>
+        <p>Leelo con atención antes de la capacitación y anotá tus dudas para consultarlas durante la jornada.</p>
+        <div class="btns">
+          <a class="btn btn-dark" href="https://drive.google.com/uc?export=download&id=1FNXt4fQ64IuCsHB8-oPa4NymNLje3u2N" target="_blank" rel="noopener">Descargar el manual</a>
+          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1FNXt4fQ64IuCsHB8-oPa4NymNLje3u2N/view?usp=sharing" target="_blank" rel="noopener">Verlo online</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
